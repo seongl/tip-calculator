@@ -14,6 +14,7 @@
 		B0706F191F4A157C0011EA07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0706F171F4A157C0011EA07 /* LaunchScreen.storyboard */; };
 		B0706F241F4A157D0011EA07 /* tippyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0706F231F4A157D0011EA07 /* tippyTests.swift */; };
 		B0706F2F1F4A157D0011EA07 /* tippyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0706F2E1F4A157D0011EA07 /* tippyUITests.swift */; };
+		B0706F3D1F4A58180011EA07 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0706F3C1F4A58180011EA07 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		B0706F2A1F4A157D0011EA07 /* tippyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tippyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0706F2E1F4A157D0011EA07 /* tippyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tippyUITests.swift; sourceTree = "<group>"; };
 		B0706F301F4A157D0011EA07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0706F3C1F4A58180011EA07 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				B0706F0E1F4A157C0011EA07 /* AppDelegate.swift */,
 				B0706F101F4A157C0011EA07 /* ViewController.swift */,
 				B0706F121F4A157C0011EA07 /* Main.storyboard */,
+				B0706F3C1F4A58180011EA07 /* SettingsViewController.swift */,
 				B0706F151F4A157C0011EA07 /* Assets.xcassets */,
 				B0706F171F4A157C0011EA07 /* LaunchScreen.storyboard */,
 				B0706F1A1F4A157C0011EA07 /* Info.plist */,
@@ -193,6 +196,7 @@
 				TargetAttributes = {
 					B0706F0A1F4A157C0011EA07 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = BTDM348QKC;
 						ProvisioningStyle = Automatic;
 					};
 					B0706F1E1F4A157D0011EA07 = {
@@ -261,6 +265,7 @@
 			files = (
 				B0706F111F4A157C0011EA07 /* ViewController.swift in Sources */,
 				B0706F0F1F4A157C0011EA07 /* AppDelegate.swift in Sources */,
+				B0706F3D1F4A58180011EA07 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,9 +417,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = BTDM348QKC;
 				INFOPLIST_FILE = tippy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.tippy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sjnicklee.tippy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -424,9 +430,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = BTDM348QKC;
 				INFOPLIST_FILE = tippy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.tippy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sjnicklee.tippy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
