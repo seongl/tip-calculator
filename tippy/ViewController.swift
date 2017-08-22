@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        updateFaces()
         // Do any additional setup after loading the view, typically from a nib.
         
 //        var TapGesture = UITapGestureRecognizer(target: self, action: "onTap")
@@ -41,8 +43,19 @@ class ViewController: UIViewController {
         //        tipLabel.text = "$\(tip)"
         tipLabel.text = String(format: "$%.2f", tip)
         totalLabel.text = String(format: "$%.2f", total)
+
+        //---
+        let defaults = UserDefaults.standard
+        let currentTime = Int(NSDate().timeIntervalSince1970)
+        defaults.set(currentTime, forKey: "lastAccessTime")
+        defaults.set(billField.text, forKey: "prevBill")
+        defaults.set(tipControl.selectedSegmentIndex, forKey: "defaultTipPercentage")
+        
+        defaults.synchronize()
+        //---
     }
 
+    
     @IBAction func calculateTip(_ sender: AnyObject) {
         calculateTip()
     }
@@ -54,12 +67,40 @@ class ViewController: UIViewController {
     // viewWillDisapper
     // viewDidDisapper
 
+    
+    var currencyFormatter: NumberFormatter {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = NSLocale.current
+        return formatter
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        // UI color change
+        self.view.backgroundColor = UIColor.darkGray
+        billField.backgroundColor = UIColor.lightGray
+        billField.textColor = UIColor.cyan
+        
+        tipControl.tintColor = UIColor.cyan
+        tipControl.backgroundColor = UIColor.blue
+        
+        tipLabel.textColor = UIColor.cyan
+        totalLabel.textColor = UIColor.cyan
         
         let defaults = UserDefaults.standard
-        let intValue = defaults.integer(forKey: "defaultTipPercentage")
+
+        //---
+        let lastAccessTime = defaults.integer(forKey: "lastAccessTime")
+        let currentTime = Int(NSDate().timeIntervalSince1970)
+        if(currentTime - lastAccessTime < 600) {
+            let prevBill = defaults.string(forKey: "prevBill")
+            billField.text = prevBill
+        }
+        //---
         
+        let intValue = defaults.integer(forKey: "defaultTipPercentage")
         print("intValue" + String(intValue))
         tipControl.selectedSegmentIndex = intValue
         
@@ -70,6 +111,10 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+
+        billField.becomeFirstResponder()
+        
+
         print("view did appear")
     }
     

@@ -35,10 +35,7 @@ class SettingsViewController: UIViewController {
     */
     
     @IBAction func setDefaultTip() {
-//        let tipPercentages = [0.18, 0.2, 0.25]
-//        let newDefaultTipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
         let defaults = UserDefaults.standard // Swift 3 syntax, previously NSUserDefaults.standardUserDefaults()
-//        defaults.set("some_string_to_save", forKey: "some_key_that_you_choose")
         
         print("AA:" + String(tipControl.selectedSegmentIndex))
         defaults.set(tipControl.selectedSegmentIndex, forKey: "defaultTipPercentage")
@@ -47,7 +44,13 @@ class SettingsViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+ 
+        // UI color change
+        self.view.backgroundColor = UIColor.darkGray
         
+        tipControl.tintColor = UIColor.cyan
+        tipControl.backgroundColor = UIColor.blue
+
         let defaults = UserDefaults.standard
         let intValue = defaults.integer(forKey: "defaultTipPercentage")
         tipControl.selectedSegmentIndex = intValue
